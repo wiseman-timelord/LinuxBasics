@@ -6,8 +6,7 @@ def main_menu():
         os.system('clear')  # Clear the screen
         print("\n         -= Linux Basics =-\n")
         print("1. Package Updates")
-        print("2. Version Information")
-        print("X. Exit\n")
+        print("2. Version Information\n")
         choice = str(input("Select; Options=1-2, Exit=X: ")).strip()
 
         if choice.upper() == 'X':
@@ -28,9 +27,8 @@ def package_updates_menu():
         print("1. Update package lists")
         print("2. Upgrade all packages")
         print("3. Fix broken dependencies")
-        print("4. Run All Tasks")
-        print("X. Return to Main Menu\n")
-        choice = str(input("Select; Options=1-4, Exit=X: ")).strip()
+        print("4. Remove unused packages\n")
+        choice = str(input("Select; Options=1-5, Exit=X: ")).strip()
 
         if choice.upper() == 'X':
             break
@@ -41,6 +39,8 @@ def package_updates_menu():
         elif choice == '3':
             fix_dependencies()
         elif choice == '4':
+            autoremove_packages()
+        elif choice == '5':
             run_all_package_tasks()
         else:
             print("Invalid choice. Please try again.")
@@ -51,8 +51,7 @@ def version_information_menu():
         print("\n      -= Version Information =-\n")
         print("1. Show Python Version")
         print("2. Show Linux Kernel Version")
-        print("3. Show System Release Info")
-        print("X. Return to Main Menu\n")
+        print("3. Show System Release Info\n")
         choice = str(input("Select; Options=1-3, Exit=X: ")).strip()
 
         if choice.upper() == 'X':
@@ -84,12 +83,10 @@ def fix_dependencies():
     os.system('sudo apt-get -f install -y')
     print("Broken dependencies fixed.")
 
-def run_all_package_tasks():
-    print("Running all package update tasks...")
-    update_packages()
-    upgrade_packages()
-    fix_dependencies()
-    print("All package tasks completed.")
+def autoremove_packages():
+    print("Removing unused packages...")
+    os.system('sudo apt autoremove -y')
+    print("Unused packages removed.")
 
 def show_python_version():
     print("Python Version:")
