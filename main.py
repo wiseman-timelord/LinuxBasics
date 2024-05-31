@@ -28,7 +28,7 @@ def package_updates_menu():
         print("2. Upgrade all packages")
         print("3. Fix broken dependencies")
         print("4. Remove unused packages\n")
-        choice = str(input("Select; Options=1-5, Exit=X: ")).strip()
+        choice = str(input("Select; Options=1-4, Exit=X: ")).strip()
 
         if choice.upper() == 'X':
             break
@@ -40,8 +40,6 @@ def package_updates_menu():
             fix_dependencies()
         elif choice == '4':
             autoremove_packages()
-        elif choice == '5':
-            run_all_package_tasks()
         else:
             print("Invalid choice. Please try again.")
         pause()
