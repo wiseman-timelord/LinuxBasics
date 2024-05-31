@@ -13,7 +13,7 @@ It takes the hassle out of using Linux for, "lazy" and new, users. Simple menu b
 ```
     -= Linux Basics =-
 
-1. Package Updates"
+1. Package Updates
 2. Version Information
 
 Select; Options=1-2, Exit=X: 
